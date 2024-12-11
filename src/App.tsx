@@ -17,7 +17,7 @@ function App() {
   // const pokemon = { name: "mew", imgSrc: null };
   return (
   <div>
-    <PokemonCard pokemon= {pokemonList[1]}/>
+    <PokemonCard pokemon= {pokemonList[0]}/>
   </div>
   );
 }
