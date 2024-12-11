@@ -1,9 +1,12 @@
+import "./App.css";
+
+import PokemonCard from "./components/PokemonCard";
 
 function App() {
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
+  <div>
+    <PokemonCard />
+  </div>
   );
 }
 
