@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import NavBar from "./components/NavBar.tsx";
 
 import PokemonCard from "./components/PokemonCard";
 
@@ -31,20 +32,22 @@ const pokemonList = [
 
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
+
   return (
     <div>
       <nav>
-        {pokemonList.map((pokemon, name) => (
-          <div key={pokemon.name}>
-            <button type="button" onClick={() => setPokemonIndex(name)}>
-              {pokemon.name}
-            </button>
-          </div>
+        {pokemonList.map((pokemon, index) => (
+          <button
+            key={pokemon.name}
+            type="button"
+            onClick={() => setPokemonIndex(index)}
+          >
+            {pokemon.name}
+          </button>
         ))}
       </nav>
+      <NavBar setPokemonIndex={setPokemonIndex} pokemonList={pokemonList} />
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
     </div>
   );
 }
-
-export default App;
