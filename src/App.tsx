@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar.tsx";
@@ -30,10 +31,20 @@ const pokemonList = [
 ];
 
 function App() {
+  useEffect(() => {
+    alert("hello pokemon trainer :)");
+  }, []);
+
   const [pokemonIndex, setPokemonIndex] = useState(0);
+  const pikachuChange = (index: number) => {
+    setPokemonIndex(index);
+    if (pokemonList[index].name === "pikachu") {
+      alert("pika pikachu !!!");
+    }
+  };
   return (
     <div>
-      <NavBar setPokemonIndex={setPokemonIndex} pokemonList={pokemonList} />
+      <NavBar setPokemonIndex={pikachuChange} pokemonList={pokemonList} />
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
     </div>
   );
